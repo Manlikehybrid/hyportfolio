@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="HybridGfx — Web Developer & UI/UX Architect crafting high-performance, visually stunning digital experiences."/>
+  <meta name="theme-color" content="#7f5af0"/>
+  <meta property="og:title" content="HybridGfx | Portfolio"/>
+  <meta property="og:description" content="High-performance web experiences, UI/UX, and full-stack solutions — React, Next.js, Node.js and more."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="image/Uniformed.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="HybridGfx | Portfolio"/>
+  <meta name="twitter:description" content="High-performance web experiences, UI/UX, and full-stack solutions."/>
+  <meta name="twitter:image" content="image/Uniformed.png"/>
+  <link rel="icon" href="image/Uniformed.png"/>
+  <title>HybridGfx | Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#hero">Skip to content</a>
+  <div id="scroll-progress"></div>
+  <div id="section-overlay"></div>
+  <div id="cursor-glow" aria-hidden="true"></div>
+  <div id="toast-container" aria-live="assertive"></div>
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="loader-logo-wrap">
+      <div class="loader-logo">
+        <svg class="liquid-loader" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7f5af0"/><stop offset="100%" stop-color="#ff8906"/>
+            </linearGradient>
+            <filter id="gooey">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -10" result="gooey"/>
+              <feBlend in="SourceGraphic" in2="gooey"/>
+            </filter>
+          </defs>
+          <g filter="url(#gooey)">
+            <circle class="blob b1" cx="70" cy="100" r="25" fill="url(#liquidGrad)"/>
+            <circle class="blob b2" cx="130" cy="100" r="25" fill="url(#liquidGrad)"/>
+            <circle class="blob b3" cx="100" cy="70" r="20" fill="url(#liquidGrad)"/>
+            <circle class="blob b4" cx="100" cy="130" r="20" fill="url(#liquidGrad)"/>
+          </g>
+          <circle class="liquid-ring" cx="100" cy="100" r="80" fill="none" stroke="#7f5af0" stroke-width="4" opacity="0.25"/>
+        </svg>
+      </div>
+      <div class="loader-logo-text">HybridGfx</div>
+      <div class="loader-logo-tagline">Crafting Memorable Digital Experiences</div>
+    </div>
+  </div>
+
+  <!-- Floating Social Sidebar -->
+  <aside class="social-sidebar" aria-label="Social links">
+    <a href="https://github.com/manlikehybrid" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.7.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.57.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/></svg>
+      <span>GitHub</span>
+    </a>
+    <a href="https://instagram.com/hybridgfx01" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
+      <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="1.2" fill="currentColor"/></svg>
+      <span>Instagram</span>
+    </a>
+    <a href="https://wa.me/2348140972012" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-link">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.06L2 22l5.06-1.38A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.93 13.5c-.2.57-1.2 1.1-1.64 1.17-.42.06-.96.08-1.55-.1-.36-.11-.82-.25-1.4-.5-2.46-1.06-4.07-3.53-4.2-3.7-.12-.17-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.97.22-.23.48-.29.64-.29h.46c.15.01.35-.06.54.42.2.48.68 1.66.74 1.78.06.12.1.26.02.42l-.24.4-.36.42c-.12.12-.24.25-.1.49.14.24.61 1.01 1.31 1.64.9.8 1.66 1.05 1.9 1.17.23.12.37.1.5-.06l.74-.91c.16-.23.32-.19.54-.11.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.57-.14 1.12z" fill="currentColor"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="#contact" class="social-link social-link--hire">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/></svg>
+      <span>Hire Me</span>
+    </a>
+    <div class="social-line"></div>
+  </aside>
+
+  <!-- WhatsApp float -->
+  <a id="whatsapp-float" href="https://wa.me/2348140972012" target="_blank" rel="noopener" title="Message me on WhatsApp" aria-label="WhatsApp">
+    <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25d366"/><path d="M23.5 8.5a8.5 8.5 0 0 0-14.5 9.5l-1 4 4-1a8.5 8.5 0 0 0 11.5-12.5zm-7.5 13a7 7 0 0 1-3.6-1l-.3-.2-2.4.6.6-2.4-.2-.3a7 7 0 1 1 5.9 3.3zm3.8-5.2c-.2-.1-1.2-.6-1.3-.7s-.3-.1-.5.1-.6.7-.7.8-.3.2-.5.1a5.7 5.7 0 0 1-1.7-1.1 6.2 6.2 0 0 1-1.1-1.7c-.1-.2 0-.3.1-.5s.6-.7.8-.9.1-.3 0-.5c-.1-.1-.7-1.7-.9-2.3-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3a2.8 2.8 0 0 0-.9 2.1c0 1.2.8 2.4 1.1 2.8a8.2 8.2 0 0 0 3.2 3.2c.4.2 1.6 1.1 2.8 1.1a2.8 2.8 0 0 0 2.1-.9c.2-.2.3-.5.3-.7v-.5c0-.2 0-.4-.5-.6z" fill="#fff"/></svg>
+  </a>
+
+  <!-- Back to top -->
+  <button id="back-to-top" title="Back to top" aria-label="Back to top">
+    <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="currentColor" opacity="0.18"/><path d="M16 24V8M16 8l-7 7M16 8l7 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="container nav">
+      <div class="logo brand" onclick="window.scrollTo({top:0,behavior:'smooth'})" role="button" tabindex="0" aria-label="HybridGfx home">
+        <span>Hybrid</span>Gfx
+      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="header-actions">
+        <button class="mode-toggle" id="modeToggle" aria-label="Toggle dark/light mode">
+          <svg id="modeSvg" width="22" height="22" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="10" fill="#ffdf6b" stroke="#ffb300" stroke-width="2"/>
+            <line x1="16" y1="2" x2="16" y2="6" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/>
+            <line x1="16" y1="26" x2="16" y2="30" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/>
+            <line x1="2" y1="16" x2="6" y2="16" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/>
+            <line x1="26" y1="16" x2="30" y2="16" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/>
+            <line x1="7.8" y1="7.8" x2="10.6" y2="10.6" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/>
+            <line x1="21.4" y1="21.4" x2="24.2" y2="24.2" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a href="#contact" class="nav-cta-btn">Hire Me</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div id="code-zone" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <div class="hero-text">
+          <div class="currently-building">
+            <span class="cb-dot"></span>
+            <span class="cb-label">Currently building:</span>
+            <span class="cb-project">SaaS Dashboard UI · React + Tailwind</span>
+          </div>
+          <h1>Hi, I'm <span class="accent"><span id="typewriter">HybridGfx</span><span class="tw-cursor">|</span></span></h1>
+          <div class="availability-badge" role="status">
+            <span class="dot"></span>
+            Available for freelance &amp; full-time opportunities
+          </div>
+          <p class="tagline">Web Developer &amp; UI/UX Architect</p>
+          <p class="hero-desc">
+            I craft sophisticated, high-performance digital experiences for modern brands and ambitious startups.<br>
+            <span class="hero-spec">Specializing in:</span> React, Next.js, Node.js, UI/UX, and more.
+          </p>
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn">View My Work</a>
+            <a href="#contact" class="btn alt">Hire Me</a>
+            <a href="resume.pdf" class="btn ghost" download aria-label="Download CV">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="margin-right:5px;vertical-align:middle"><path d="M12 16l-5-5h3V4h4v7h3l-5 5z" fill="currentColor"/><rect x="4" y="18" width="16" height="2" rx="1" fill="currentColor"/></svg>Resume
+            </a>
+          </div>
+          <div class="tech-stack-logos" aria-label="Tech stack">
+            <span class="tech-logo" title="React"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5" fill="#61DAFB"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61DAFB" stroke-width="1.2" fill="none" transform="rotate(120 12 12)"/></svg>React</span>
+            <span class="tech-logo" title="Next.js"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#000"/><path d="M15.5 7h1.5v6.5L9 7H7.5v10H9v-6.5L16.5 17H18V7h-2.5z" fill="#fff"/></svg>Next.js</span>
+            <span class="tech-logo" title="Node.js"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.18L19 8v8l-7 3.88L5 16V8l7-3.82z" fill="#339933"/></svg>Node.js</span>
+            <span class="tech-logo" title="TypeScript"><svg viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#3178C6"/><path d="M13.5 14.5v1.5c.4.2.9.3 1.4.3 1.6 0 2.6-.8 2.6-2.1 0-1-.6-1.6-1.8-2l-.5-.2c-.6-.2-.8-.4-.8-.7 0-.4.3-.6.8-.6.5 0 1 .2 1.4.5V9.7c-.4-.2-.9-.3-1.4-.3-1.5 0-2.5.8-2.5 2 0 1 .6 1.6 1.7 2l.5.2c.7.3.9.5.9.8 0 .4-.3.7-.9.7-.6 0-1.2-.3-1.4-.6zM7 9.5H5v1.5h2V18h1.5v-7H11V9.5H7z" fill="#fff"/></svg>TypeScript</span>
+            <span class="tech-logo" title="Figma"><svg viewBox="0 0 24 24"><path d="M8 3a3 3 0 0 0 0 6h3V3H8z" fill="#F24E1E"/><path d="M11 3h3a3 3 0 0 1 0 6h-3V3z" fill="#FF7262"/><path d="M11 12a3 3 0 1 1 6 0 3 3 0 0 1-6 0z" fill="#1ABCFE"/><path d="M8 9a3 3 0 0 0 0 6h3V9H8z" fill="#0ACF83"/><path d="M8 15a3 3 0 1 0 3 3v-3H8z" fill="#A259FF"/></svg>Figma</span>
+            <span class="tech-logo" title="Tailwind"><svg viewBox="0 0 24 24"><path d="M12 6C9.6 6 8.1 7.2 7.5 9.6c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.668 1.715 1.219C13.245 10.39 14.19 11.4 16.5 11.4c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.668-1.715-1.219C15.255 7.01 14.31 6 12 6zM7.5 11.4C5.1 11.4 3.6 12.6 3 15c.9-1.2 1.95-1.65 3.15-1.35.685.171 1.174.668 1.715 1.219C8.745 15.79 9.69 16.8 12 16.8c2.4 0 3.9-1.2 4.5-3.6-.9 1.2-1.95 1.65-3.15 1.35-.685-.171-1.174-.668-1.715-1.219C10.755 12.41 9.81 11.4 7.5 11.4z" fill="#38BDF8"/></svg>Tailwind</span>
+          </div>
+        </div>
+        <img src="image/Uniformed.png" alt="HybridGfx" class="hero-img" decoding="async" fetchpriority="high">
+      </div>
+    </section>
+
+    <!-- TRUST BAND -->
+    <section class="trust-band" aria-label="Key strengths">
+      <div class="container trust-inner">
+        <div class="trust-left">
+          <div class="trust-title">Built for speed, clarity, and conversion</div>
+          <div class="trust-sub">Design systems • Performance • Accessible UX • Premium visuals</div>
+        </div>
+        <div class="trust-right" role="list">
+          <div class="pill" role="listitem">Lighthouse-focused</div>
+          <div class="pill" role="listitem">Responsive-first</div>
+          <div class="pill" role="listitem">Dark-mode perfect</div>
+          <div class="pill" role="listitem">Clean handoff</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="bulky-section" id="stats">
+      <div class="container">
+        <div class="bulky-title">Impact in Numbers</div>
+        <div class="stats-section">
+          <div class="stat-card"><div class="stat-number" id="stat-projects">0</div><div class="stat-label">Projects Completed</div></div>
+          <div class="stat-card"><div class="stat-number" id="stat-clients">0</div><div class="stat-label">Happy Clients</div></div>
+          <div class="stat-card"><div class="stat-number" id="stat-years">0</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat-card"><div class="stat-number" id="stat-awards">0</div><div class="stat-label">Awards Won</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about bulky-section" id="about">
+      <div class="container about-content">
+        <div class="about-text">
+          <h2 class="bulky-title" style="text-align:left;">About Me</h2>
+          <p class="body-text">
+            I'm a self-taught developer with a passion for clean code, mature design, and seamless user experiences. My journey began with curiosity and evolved into a relentless pursuit of digital excellence.<br><br>
+            <b>My philosophy:</b> <span style="color:var(--primary);">Code with purpose. Design with empathy. Deliver with integrity.</span>
+          </p>
+          <h3 style="color:var(--primary);font-size:1.05rem;margin:1.4rem 0 0.8rem;font-weight:700;">What I Do</h3>
+          <ul class="skills-list">
+            <li>Front-End Development (React, Next.js, HTML, CSS, JS, Tailwind)</li>
+            <li>Back-End Development (Node.js, Express, REST APIs, Firebase)</li>
+            <li>UI/UX Design (Figma, Adobe XD, Prototyping, User Testing)</li>
+            <li>Performance Optimization &amp; SEO</li>
+            <li>Branding &amp; Visual Identity</li>
+            <li>Mentoring &amp; Community Building</li>
+          </ul>
+        </div>
+        <img src="image/image.jpg" alt="HybridGfx at work" class="about-img" loading="lazy" decoding="async">
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="bulky-section services">
+      <div class="container">
+        <h2 class="bulky-title">Services</h2>
+        <p class="bulky-subtitle">What I build, optimize, and ship — with speed, clarity, and premium UI polish.</p>
+        <div class="services-grid">
+          <article class="service-card"><div class="service-icon">⚡</div><h3>High-Conversion Landing Pages</h3><p>Premium landing pages with clear messaging, motion that guides attention, and conversion-first structure.</p><ul class="service-points"><li>CTA hierarchy &amp; content flow</li><li>Responsive, fast, SEO-ready</li><li>Deploy to Vercel/Netlify</li></ul><a href="#contact" class="service-cta">Start a project →</a></article>
+          <article class="service-card"><div class="service-icon">🧩</div><h3>Web Apps &amp; Dashboards</h3><p>Modern app UIs with scalable components, accessibility, and clean information architecture.</p><ul class="service-points"><li>React / Next.js UI systems</li><li>Auth flows &amp; API integration</li><li>Performance + maintainability</li></ul><a href="#contact" class="service-cta">Start a project →</a></article>
+          <article class="service-card"><div class="service-icon">🎯</div><h3>UI/UX + Design Systems</h3><p>Design that looks premium and feels effortless — tokens, components, and patterns that scale.</p><ul class="service-points"><li>Figma workflows &amp; handoff</li><li>Reusable component libraries</li><li>Accessibility &amp; consistency</li></ul><a href="#contact" class="service-cta">Start a project →</a></article>
+          <article class="service-card"><div class="service-icon">🚀</div><h3>Optimization &amp; Redesign</h3><p>Turn "good enough" into exceptional: improve visuals, UX, speed, and clarity.</p><ul class="service-points"><li>Lighthouse + Core Web Vitals</li><li>Dark mode + theming fixes</li><li>UX polish &amp; micro-interactions</li></ul><a href="#contact" class="service-cta">Start a project →</a></article>
+        </div>
+        <div class="services-cta"><a class="btn" href="#contact">Start a project</a><a class="btn alt" href="#portfolio">See case studies</a></div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="bulky-section pricing">
+      <div class="container">
+        <h2 class="bulky-title">Packages</h2>
+        <p class="bulky-subtitle">Transparent starting points — every project is scoped to your exact needs.</p>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-badge">Starter</div>
+            <div class="pricing-price">From <strong>$350</strong></div>
+            <p class="pricing-desc">Perfect for individuals &amp; small businesses that need a polished online presence fast.</p>
+            <ul class="pricing-features"><li>✅ Landing page (1–3 sections)</li><li>✅ Mobile responsive</li><li>✅ Contact form + basic SEO</li><li>✅ 1 revision round</li><li>✅ Deploy to Vercel/Netlify</li></ul>
+            <a class="btn alt" href="#contact" onclick="prefillContact('Starter')">Get a quote</a>
+          </div>
+          <div class="pricing-card pricing-featured">
+            <div class="pricing-label-popular">Most Popular</div>
+            <div class="pricing-badge">Pro</div>
+            <div class="pricing-price">From <strong>$900</strong></div>
+            <p class="pricing-desc">Full-featured site or web app with premium UI, animations, and performance optimization.</p>
+            <ul class="pricing-features"><li>✅ Multi-page site or web app</li><li>✅ Custom UI/UX design system</li><li>✅ Motion &amp; micro-interactions</li><li>✅ Dark mode + accessibility</li><li>✅ 3 revision rounds</li><li>✅ Lighthouse 90+ performance</li></ul>
+            <a class="btn" href="#contact" onclick="prefillContact('Pro')">Get a quote</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pricing-badge">Enterprise</div>
+            <div class="pricing-price"><strong>Custom</strong></div>
+            <p class="pricing-desc">Large-scale platforms, design systems, SaaS dashboards, or long-term retainer engagements.</p>
+            <ul class="pricing-features"><li>✅ Full-stack or large frontend</li><li>✅ Design system + component library</li><li>✅ API integration &amp; auth flows</li><li>✅ Ongoing support &amp; retainer</li><li>✅ Dedicated discovery &amp; milestones</li></ul>
+            <a class="btn alt" href="#contact" onclick="prefillContact('Enterprise')">Let's talk</a>
+          </div>
+        </div>
+        <p class="pricing-note">Not sure which fits? <a href="#contact">Send a brief</a> and I'll recommend the right scope.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="bulky-section process">
+      <div class="container">
+        <h2 class="bulky-title">Process</h2>
+        <p class="bulky-subtitle">A clear workflow that keeps you confident from kickoff to launch.</p>
+        <div class="process-steps">
+          <div class="step"><div class="step-num">01</div><div class="step-body"><h3>Discovery</h3><p>Goals, audience, references, and scope. We agree on what "success" means.</p></div></div>
+          <div class="step"><div class="step-num">02</div><div class="step-body"><h3>Design</h3><p>Structure, layout, UI direction, and content flow. Premium visuals with clarity.</p></div></div>
+          <div class="step"><div class="step-num">03</div><div class="step-body"><h3>Build</h3><p>Implementation with performance, accessibility, and responsive behavior from day one.</p></div></div>
+          <div class="step"><div class="step-num">04</div><div class="step-body"><h3>Launch</h3><p>Deployment, analytics hooks, final QA, and post-launch support if needed.</p></div></div>
+        </div>
+        <div class="process-band">
+          <div class="band-item"><strong>Speed</strong><span>Fast iterations &amp; clear checkpoints</span></div>
+          <div class="band-item"><strong>Quality</strong><span>Performance + accessibility included</span></div>
+          <div class="band-item"><strong>Polish</strong><span>Micro-interactions &amp; premium visuals</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section class="bulky-section" id="journey">
+      <div class="container">
+        <div class="bulky-title">My Journey</div>
+        <div class="timeline">
+          <div class="timeline-event"><div class="timeline-dot"></div><div class="timeline-content"><strong>2019</strong> – Embarked on my coding journey, mastering HTML, CSS, and JavaScript from the ground up.</div></div>
+          <div class="timeline-event"><div class="timeline-dot"></div><div class="timeline-content"><strong>2020</strong> – Delivered my first freelance website for a local business and discovered a love for UI/UX.</div></div>
+          <div class="timeline-event"><div class="timeline-dot"></div><div class="timeline-content"><strong>2021</strong> – Mastered React and Node.js, launched SaaS MVPs, and contributed to open source.</div></div>
+          <div class="timeline-event"><div class="timeline-dot"></div><div class="timeline-content"><strong>2022</strong> – Joined a remote team, led UI/UX for a major product, and won my first web design award.</div></div>
+          <div class="timeline-event"><div class="timeline-dot"></div><div class="timeline-content"><strong>2023</strong> – Mentored junior devs, spoke at tech meetups, and expanded my portfolio with advanced full-stack projects.</div></div>
+          <div class="timeline-event"><div class="timeline-dot"></div><div class="timeline-content"><strong>2024</strong> – Building HybridGfx into a brand, focusing on innovation, accessibility, and next-gen web experiences.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="bulky-section" id="skills">
+      <div class="container">
+        <div class="bulky-title">Skills &amp; Tools</div>
+        <div class="bulky-subtitle">A mature overview of my technical stack and favorite tools</div>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="skill-card-header"><span class="skill-card-icon">⚛️</span><h4>Front-End</h4></div><ul class="skill-bar-list"><li><span>React / Next.js</span><div class="skill-bar"><div class="skill-fill" style="--w:92%"></div></div></li><li><span>HTML5 / CSS3 / SASS</span><div class="skill-bar"><div class="skill-fill" style="--w:96%"></div></div></li><li><span>JavaScript / TypeScript</span><div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div></li><li><span>Tailwind / Bootstrap</span><div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div></li><li><span>Framer Motion / GSAP</span><div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div></li></ul></div>
+          <div class="skill-card"><div class="skill-card-header"><span class="skill-card-icon">🛠️</span><h4>Back-End</h4></div><ul class="skill-bar-list"><li><span>Node.js / Express</span><div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div></li><li><span>REST APIs / GraphQL</span><div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div></li><li><span>Firebase / MongoDB</span><div class="skill-bar"><div class="skill-fill" style="--w:78%"></div></div></li><li><span>Auth &amp; Security</span><div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div></li><li><span>Serverless Functions</span><div class="skill-bar"><div class="skill-fill" style="--w:74%"></div></div></li></ul></div>
+          <div class="skill-card"><div class="skill-card-header"><span class="skill-card-icon">🎨</span><h4>Design &amp; Workflow</h4></div><ul class="skill-bar-list"><li><span>Figma / Adobe XD</span><div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div></li><li><span>Photoshop / Illustrator</span><div class="skill-bar"><div class="skill-fill" style="--w:82%"></div></div></li><li><span>Prototyping / Wireframes</span><div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div></li><li><span>Agile / Git &amp; GitHub</span><div class="skill-bar"><div class="skill-fill" style="--w:93%"></div></div></li><li><span>Notion / Trello</span><div class="skill-bar"><div class="skill-fill" style="--w:86%"></div></div></li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="portfolio bulky-section" id="portfolio">
+      <div class="container">
+        <div class="bulky-title">Featured Projects</div>
+        <div class="bulky-subtitle">A selection of my most impactful work</div>
+        <div class="portfolio-filters" role="tablist" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-btn" data-filter="Landing" role="tab" aria-selected="false">Landing Pages</button>
+          <button class="filter-btn" data-filter="Dashboard" role="tab" aria-selected="false">Dashboards</button>
+          <button class="filter-btn" data-filter="Brand" role="tab" aria-selected="false">Branding</button>
+          <button class="filter-btn" data-filter="UI/UX" role="tab" aria-selected="false">UI/UX</button>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+        <div style="text-align:center;margin-top:2.5rem;">
+          <a href="https://github.com/manlikehybrid" target="_blank" rel="noopener" class="btn">See More on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="bulky-section" id="testimonials">
+      <div class="container">
+        <div class="bulky-title">What Clients Say</div>
+        <div class="bulky-subtitle">Real words from real people I've worked with</div>
+        <div class="testimonials">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-quote">"HybridGfx delivered our project ahead of schedule and exceeded our expectations. The UI is stunning and the code is rock solid!"</div>
+            <div class="testimonial-footer">
+              <img src="image/IMG_3145.JPG" alt="Sarah M." class="testimonial-avatar" loading="lazy" decoding="async">
+              <div><div class="testimonial-name">Sarah M.</div><div class="testimonial-role">Startup Founder</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-quote">"Professional, creative, and always communicative. Highly recommend for any web development needs. The attention to detail is unmatched."</div>
+            <div class="testimonial-footer">
+              <img src="image/image.jpg" alt="James L." class="testimonial-avatar" loading="lazy" decoding="async">
+              <div><div class="testimonial-name">James L.</div><div class="testimonial-role">Agency Owner</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <div class="testimonial-quote">"The best freelance developer I've worked with. HybridGfx turned our vision into reality and added so much value beyond the brief."</div>
+            <div class="testimonial-footer">
+              <img src="image/image.jpg" alt="Alex P." class="testimonial-avatar" loading="lazy" decoding="async">
+              <div><div class="testimonial-name">Alex P.</div><div class="testimonial-role">Product Manager</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bulky-section faq">
+      <div class="container">
+        <h2 class="bulky-title">FAQ</h2>
+        <p class="bulky-subtitle">Quick answers — or ask the AI assistant.</p>
+        <div class="faq-grid">
+          <details class="faq-item"><summary>What do you need from me to start?</summary><p>A short brief: your goal, target audience, examples you like, content (or we draft it), and preferred timeline.</p></details>
+          <details class="faq-item"><summary>How fast can you deliver?</summary><p>Landing pages: 3–7 days. Full web apps: 2–6 weeks depending on scope. I'll propose clear milestones after discovery.</p></details>
+          <details class="faq-item"><summary>Do you offer revisions?</summary><p>Yes — every package includes structured revision rounds so the final result matches your expectations exactly.</p></details>
+          <details class="faq-item"><summary>Can you redesign an existing site?</summary><p>Absolutely. I can upgrade clarity, visuals, performance, and dark-mode while keeping your brand identity intact.</p></details>
+          <details class="faq-item"><summary>Do you work with international clients?</summary><p>Yes, I work with clients globally. Communication is async-friendly and I'm available across most time zones.</p></details>
+          <details class="faq-item"><summary>What payment methods do you accept?</summary><p>Bank transfer, crypto, PayPal, or any major method. A 50% deposit is required to start; remainder on delivery.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band" aria-label="Call to action">
+      <div class="container cta-inner">
+        <div class="cta-copy"><h2>Ready to build something premium?</h2><p>Tell me your goal, timeline, and references — I'll propose a clear plan with milestones.</p></div>
+        <div class="cta-actions"><a class="btn" href="#contact">Let's talk</a><a class="btn alt" href="#portfolio">View work</a></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact bulky-section" id="contact">
+      <div class="container contact-content">
+        <div class="bulky-title">Contact Me</div>
+        <div class="bulky-subtitle">Let's build something extraordinary together.</div>
+        <form id="contactForm" autocomplete="off" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact"/>
+          <p class="hidden"><label>Don't fill this: <input name="bot-field"/></label></p>
+          <div class="form-row">
+            <div class="form-group"><label for="cf-name">Your Name *</label><input type="text" id="cf-name" name="name" placeholder="John Doe" required/></div>
+            <div class="form-group"><label for="cf-email">Email *</label><input type="email" id="cf-email" name="email" placeholder="you@company.com" required/></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-type">Project Type</label>
+              <select id="cf-type" name="project_type">
+                <option value="">Select project type…</option>
+                <option>Landing Page</option>
+                <option>Web App / Dashboard</option>
+                <option>UI/UX Design System</option>
+                <option>Site Redesign &amp; Optimization</option>
+                <option>Full-Stack Platform</option>
+                <option>Other / Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cf-budget">Budget Range</label>
+              <select id="cf-budget" name="budget">
+                <option value="">Select budget…</option>
+                <option>Under $350</option>
+                <option>$350 – $900</option>
+                <option>$900 – $2,500</option>
+                <option>$2,500 – $5,000</option>
+                <option>$5,000+</option>
+                <option>Let's discuss</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="cf-subject">Subject</label><input type="text" id="cf-subject" name="subject" placeholder="e.g. New landing page for my brand"/></div>
+          <div class="form-group"><label for="cf-message">Message *</label><textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project, goals, and any references you love…" required></textarea></div>
+          <button type="submit" class="btn form-submit-btn" id="formSubmitBtn">
+            <span class="btn-text">Send Message</span>
+            <span class="btn-loader" aria-hidden="true"></span>
+          </button>
+        </form>
+        <div class="contact-alt">
+          <span>Or reach me directly:</span>
+          <a href="https://wa.me/2348140972012" target="_blank" rel="noopener" class="contact-alt-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.06L2 22l5.06-1.38A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.93 13.5c-.2.57-1.2 1.1-1.64 1.17-.42.06-.96.08-1.55-.1-.36-.11-.82-.25-1.4-.5-2.46-1.06-4.07-3.53-4.2-3.7-.12-.17-.97-1.29-.97-2.46 0-1.17.61-1.74.83-1.97.22-.23.48-.29.64-.29h.46c.15.01.35-.06.54.42.2.48.68 1.66.74 1.78.06.12.1.26.02.42l-.24.4-.36.42c-.12.12-.24.25-.1.49.14.24.61 1.01 1.31 1.64.9.8 1.66 1.05 1.9 1.17.23.12.37.1.5-.06l.74-.91c.16-.23.32-.19.54-.11.22.08 1.4.66 1.64.78.24.12.4.18.46.28.06.1.06.57-.14 1.12z" fill="#25d366"/></svg>
+            WhatsApp
+          </a>
+          <a href="https://instagram.com/hybridgfx01" target="_blank" rel="noopener" class="contact-alt-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#7f5af0" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="#7f5af0" stroke-width="2"/><circle cx="18" cy="6" r="1.2" fill="#7f5af0"/></svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="modal" id="projectModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Project details">
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-card" role="document">
+        <button class="modal-close" type="button" aria-label="Close" data-close="true">✕</button>
+        <div class="modal-head"><h3 id="modalTitle">Project</h3><p id="modalSubtitle" class="modal-subtitle"></p></div>
+        <div class="modal-body">
+          <div class="modal-meta" id="modalTags"></div>
+          <p id="modalDesc" class="modal-desc"></p>
+          <div class="modal-actions">
+            <a id="modalLink" class="btn" href="#contact" data-close="true">Inquire About This</a>
+            <a class="btn alt" href="#contact" data-close="true">Hire Me</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>&copy; <span id="year"></span> HybridGfx. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="https://github.com/manlikehybrid" target="_blank" rel="noopener" aria-label="GitHub"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.7.12 2.5.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .26.18.57.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="#7f5af0"/></svg></a>
+        <a href="https://instagram.com/hybridgfx01" target="_blank" rel="noopener" aria-label="Instagram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#7f5af0" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="#7f5af0" stroke-width="2"/><circle cx="18" cy="6" r="1.2" fill="#7f5af0"/></svg></a>
+        <a href="https://wa.me/2348140972012" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25d366"/><path d="M23.5 8.5a8.5 8.5 0 0 0-14.5 9.5l-1 4 4-1a8.5 8.5 0 0 0 11.5-12.5z" fill="#fff"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chat Widget -->
+  <button class="chat-fab" id="chatFab" aria-label="Open site assistant">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6V10h12v2zm0-3H6V7h12v2z" fill="currentColor"/></svg>
+  </button>
+  <div class="chat-panel" id="chatPanel" aria-hidden="true" role="dialog" aria-label="Site assistant">
+    <div class="chat-head">
+      <div><div class="chat-title">AI Assistant</div><div class="chat-subtitle">Powered by Claude · Ask me anything</div></div>
+      <button class="chat-close" id="chatClose" aria-label="Close">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody" aria-live="polite"></div>
+    <div class="chat-quick">
+      <button class="chip" data-q="What services do you offer?">Services</button>
+      <button class="chip" data-q="What are your pricing packages?">Pricing</button>
+      <button class="chip" data-q="What tech stack do you use?">Stack</button>
+      <button class="chip" data-q="How do we start a project?">Start</button>
+    </div>
+    <form class="chat-form" id="chatForm">
+      <input class="chat-input" id="chatInput" type="text" placeholder="Ask anything…" autocomplete="off"/>
+      <button class="chat-send" type="submit" aria-label="Send"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z" fill="currentColor"/></svg></button>
+    </form>
+    <div class="chat-note">AI-generated answers. For urgent matters use WhatsApp.</div>
+  </div>
+
+  <script>
+  // ── TOAST ──────────────────────────────────────────────────────────
+  function showToast(msg, type = 'success') {
+    const c = document.getElementById('toast-container');
+    const t = document.createElement('div');
+    t.className = `toast toast--${type}`;
+    t.innerHTML = `<span>${type==='success'?'✅':'❌'}</span><span>${msg}</span>`;
+    c.appendChild(t);
+    requestAnimationFrame(() => t.classList.add('toast--show'));
+    setTimeout(() => { t.classList.remove('toast--show'); setTimeout(() => t.remove(), 400); }, 4000);
+  }
+
+  // ── LOADER ────────────────────────────────────────────────────────
+  window.addEventListener('load', () => setTimeout(() => document.body.classList.add('loaded'), 1200));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ── SCROLL PROGRESS ───────────────────────────────────────────────
+  const progBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const pct = document.documentElement.scrollHeight - window.innerHeight;
+    progBar.style.width = (pct > 0 ? (window.scrollY / pct) * 100 : 0) + '%';
+  }, { passive: true });
+
+  // ── TYPEWRITER ────────────────────────────────────────────────────
+  const roles = ['HybridGfx', 'Web Developer', 'UI/UX Architect', 'React Engineer', 'Digital Craftsman'];
+  let ri = 0, ci = 0, del = false;
+  const tw = document.getElementById('typewriter');
+  function type() {
+    const cur = roles[ri];
+    tw.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
+    if (!del && ci === cur.length) { del = true; setTimeout(type, 2000); return; }
+    if (del && ci === 0) { del = false; ri = (ri + 1) % roles.length; }
+    setTimeout(type, del ? 50 : 90);
+  }
+  setTimeout(type, 1600);
+
+  // ── DARK MODE ─────────────────────────────────────────────────────
+  const modeToggle = document.getElementById('modeToggle');
+  const modeSvg = document.getElementById('modeSvg');
+  function setMode(dark) {
+    document.body.classList.toggle('dark-mode', dark);
+    modeSvg.innerHTML = dark
+      ? `<circle cx="16" cy="16" r="10" fill="#23243a" stroke="#ffdf6b" stroke-width="2"/><path d="M22 16a6 6 0 1 1-6-6" fill="#ffdf6b" stroke="#ffdf6b" stroke-width="2"/><circle cx="20" cy="14" r="2" fill="#ffb300" opacity="0.5"/>`
+      : `<circle cx="16" cy="16" r="10" fill="#ffdf6b" stroke="#ffb300" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="26" x2="16" y2="30" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/><line x1="2" y1="16" x2="6" y2="16" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/><line x1="26" y1="16" x2="30" y2="16" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/><line x1="7.8" y1="7.8" x2="10.6" y2="10.6" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/><line x1="21.4" y1="21.4" x2="24.2" y2="24.2" stroke="#ffb300" stroke-width="2" stroke-linecap="round"/>`;
+    modeSvg.style.transition = 'transform 0.4s';
+    modeSvg.style.transform = 'rotate(360deg)';
+    setTimeout(() => modeSvg.style.transform = '', 400);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  }
+  (function() {
+    const s = localStorage.getItem('theme');
+    setMode(s === 'dark' || (s === null && window.matchMedia('(prefers-color-scheme: dark)').matches));
+  })();
+  modeToggle.addEventListener('click', () => setMode(!document.body.classList.contains('dark-mode')));
+
+  // ── NAV ───────────────────────────────────────────────────────────
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('active', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open'); navToggle.classList.remove('active');
+  }));
+
+  // ── SECTION FLASH OVERLAY ─────────────────────────────────────────
+  const overlay = document.getElementById('section-overlay');
+  function flashOverlay() {
+    overlay.classList.add('active');
+    setTimeout(() => overlay.classList.remove('active'), 700);
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(el => {
+    el.addEventListener('click', () => { if (document.querySelector(el.getAttribute('href'))) flashOverlay(); });
+  });
+
+  // ── SCROLL REVEAL (IntersectionObserver) ──────────────────────────
+  const revObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revObs.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.bulky-section, .timeline-event, .stat-card, .testimonial-card').forEach(el => revObs.observe(el));
+
+  // ── STATS COUNTER ─────────────────────────────────────────────────
+  function countUp(id, end, suf) {
+    const el = document.getElementById(id); if (!el) return;
+    let n = 0; const step = Math.max(1, Math.ceil(end / 60));
+    const t = setInterval(() => { n = Math.min(n + step, end); el.textContent = n + (suf||''); if (n >= end) clearInterval(t); }, 25);
+  }
+  new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      countUp('stat-projects', 35, '+'); countUp('stat-clients', 20, '+');
+      countUp('stat-years', 4, ''); countUp('stat-awards', 7, '');
+    }
+  }, { threshold: 0.3 }).observe(document.getElementById('stats'));
+
+  // ── NAV HIGHLIGHT ─────────────────────────────────────────────────
+  const navSecs = ['hero','about','skills','portfolio','pricing','testimonials','contact'];
+  function hlNav() {
+    const sp = window.scrollY;
+    for (let i = navSecs.length-1; i >= 0; i--) {
+      const s = document.getElementById(navSecs[i]);
+      if (s && s.offsetTop - 130 <= sp) {
+        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+        const lnk = document.querySelector(`.nav-links a[href="#${navSecs[i]}"]`);
+        if (lnk) lnk.classList.add('active'); break;
+      }
+    }
+  }
+  window.addEventListener('scroll', hlNav, { passive: true }); hlNav();
+
+  // ── BACK TO TOP ───────────────────────────────────────────────────
+  const btt = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => { btt.style.opacity = window.scrollY > 300 ? '1' : '0'; btt.style.pointerEvents = window.scrollY > 300 ? 'auto' : 'none'; }, { passive: true });
+  btt.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); flashOverlay(); });
+
+  // ── PORTFOLIO FILTER ──────────────────────────────────────────────
+  const projects = [
+    { title: "Simplex Exchange — Landing + Brand UI", subtitle: "Conversion-focused landing with modern motion and strong hierarchy.", desc: "A premium landing page concept designed to maximize conversion with clear CTA structure, fast load, and a refined, confident aesthetic.", tags: ["UI/UX","Landing","Responsive","Motion"], color: "#7f5af0", emoji: "⚡" },
+    { title: "Fintech Dashboard Concept", subtitle: "Wallets, analytics, and activity with accessible components.", desc: "A sleek dashboard concept for insights, wallet balances, transactions, and alerts. Built with clean spacing, readable contrast, and scalable components.", tags: ["Dashboard","Accessibility","UX","Data UI"], color: "#2cb67d", emoji: "📊" },
+    { title: "Creative Studio Portfolio", subtitle: "Bold typography, micro-interactions, and clean content flow.", desc: "A studio-style portfolio layout that uses modern blends, glass surfaces, and restrained motion to create a high-end brand impression.", tags: ["Brand","Micro-UX","Design","Glass UI"], color: "#ff8906", emoji: "🎨" },
+    { title: "Booking / Services Site", subtitle: "Services, trust signals, and a lead capture funnel.", desc: "A service business website emphasizing trust (testimonials, process, FAQs) and makes contacting frictionless across devices.", tags: ["UI/UX","Landing","SEO","Lead Gen"], color: "#e0479e", emoji: "📅" },
+    { title: "SaaS Onboarding Flow", subtitle: "Multi-step onboarding UI with progress, validation, and delight.", desc: "A clean, accessible onboarding wizard for a SaaS product. Focused on completion rate, clarity, and micro-animations that guide users through setup.", tags: ["Dashboard","UX","React","Motion"], color: "#3d7fff", emoji: "🚀" },
+    { title: "Brand Identity System", subtitle: "Full visual identity from logo to design tokens.", desc: "Complete brand identity including logo, color palette, typography, component tokens, and brand guidelines — delivered Figma-ready.", tags: ["Brand","Design","Figma","UI/UX"], color: "#a07af5", emoji: "🏷️" },
+  ];
+
+  function renderProjects(filter = 'all') {
+    const grid = document.getElementById('projectsGrid'); if (!grid) return;
+    const list = filter === 'all' ? projects : projects.filter(p => p.tags.includes(filter));
+    grid.innerHTML = list.map(p => {
+      const idx = projects.indexOf(p);
+      return `<article class="project-card" tabindex="0" data-idx="${idx}" aria-label="${p.title}" style="--card-accent:${p.color}">
+        <div class="project-thumb" style="background:linear-gradient(135deg,${p.color}22,${p.color}55)" aria-hidden="true"><span class="project-emoji">${p.emoji}</span></div>
+        <div class="project-body">
+          <h4 class="project-title">${p.title}</h4>
+          <p class="project-desc">${p.subtitle}</p>
+          <div class="project-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+          <button class="project-open" type="button" data-idx="${idx}">View case study →</button>
+        </div>
+      </article>`;
+    }).join('');
+    grid.querySelectorAll('.project-open').forEach(b => b.addEventListener('click', e => { e.stopPropagation(); openModal(+b.dataset.idx); }));
+    grid.querySelectorAll('.project-card').forEach(c => {
+      c.addEventListener('click', () => openModal(+c.dataset.idx));
+      c.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); openModal(+c.dataset.idx); } });
+    });
+  }
+
+  document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    btn.classList.add('active'); btn.setAttribute('aria-selected','true');
+    const grid = document.getElementById('projectsGrid');
+    grid.style.opacity = '0'; grid.style.transform = 'translateY(12px)';
+    setTimeout(() => { renderProjects(btn.dataset.filter); grid.style.opacity='1'; grid.style.transform='translateY(0)'; }, 200);
+  }));
+  renderProjects();
+
+  // ── PROJECT MODAL ─────────────────────────────────────────────────
+  const pModal = document.getElementById('projectModal');
+  function openModal(idx) {
+    const p = projects[idx]; if (!p||!pModal) return;
+    document.getElementById('modalTitle').textContent = p.title;
+    document.getElementById('modalSubtitle').textContent = p.subtitle;
+    document.getElementById('modalDesc').textContent = p.desc;
+    document.getElementById('modalTags').innerHTML = p.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+    pModal.classList.add('open'); pModal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    pModal.querySelector('[data-close]').focus();
+  }
+  function closeModal() { pModal.classList.remove('open'); pModal.setAttribute('aria-hidden','true'); document.body.classList.remove('modal-open'); }
+  pModal.addEventListener('click', e => { if (e.target.dataset.close==='true') closeModal(); });
+  window.addEventListener('keydown', e => { if (e.key==='Escape'&&pModal.classList.contains('open')) closeModal(); });
+
+  // ── CONTACT FORM ──────────────────────────────────────────────────
+  function prefillContact(pkg) {
+    setTimeout(() => {
+      const b = document.getElementById('cf-budget'); if (!b) return;
+      const map = { Starter: '$350 – $900', Pro: '$900 – $2,500', Enterprise: '$5,000+' };
+      if (map[pkg]) b.value = map[pkg];
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+  window.prefillContact = prefillContact;
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('formSubmitBtn');
+    btn.disabled = true; btn.classList.add('loading');
+    btn.querySelector('.btn-text').textContent = 'Sending…';
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(this)).toString() })
+      .then(() => { showToast("Message sent! I'll get back to you soon.", 'success'); this.reset(); })
+      .catch(() => showToast('Something went wrong. Please try WhatsApp or email directly.', 'error'))
+      .finally(() => { btn.disabled=false; btn.classList.remove('loading'); btn.querySelector('.btn-text').textContent='Send Message'; });
+  });
+
+  // ── CURSOR GLOW ───────────────────────────────────────────────────
+  (function() {
+    const g = document.getElementById('cursor-glow');
+    if (!g || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { if(g) g.style.display='none'; return; }
+    let x=-200,y=-200,tx=-200,ty=-200;
+    function tick(){x+=(tx-x)*0.1;y+=(ty-y)*0.1;g.style.transform=`translate(${x}px,${y}px)`;requestAnimationFrame(tick);}
+    window.addEventListener('mousemove',e=>{tx=e.clientX-180;ty=e.clientY-180;},{passive:true}); tick();
+  })();
+
+  // ── CODE ZONE ─────────────────────────────────────────────────────
+  (function() {
+    const z = document.getElementById('code-zone');
+    if (!z || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { if(z) z.style.display='none'; return; }
+    const snip=["const ui=buildExperience();","export default function Hero(){}","npm i next react framer","Lighthouse 95+ ⚡","fetch('/api').then(r=>r.json())","designTokens.primary='#7f5af0';","git commit -m 'ship it'","type Theme='light'|'dark';","await deploy({region:'edge'})","accessibility: aria-* ✅"];
+    for(let c=0;c<12;c++){const col=document.createElement('div');col.className='code-col';col.style.cssText=`left:${c*(100/12)}%;animation-delay:${(-Math.random()*10).toFixed(2)}s;animation-duration:${(12+Math.random()*10).toFixed(2)}s;opacity:${(0.07+Math.random()*0.12).toFixed(2)}`;for(let r=0;r<16;r++){const l=document.createElement('div');l.className='code-line';l.textContent=snip[Math.random()*snip.length|0];col.appendChild(l);}z.appendChild(col);}
+  })();
+
+  // ── AI CHAT ───────────────────────────────────────────────────────
+  (function() {
+    const fab=document.getElementById('chatFab'),panel=document.getElementById('chatPanel'),
+          close=document.getElementById('chatClose'),body=document.getElementById('chatBody'),
+          form=document.getElementById('chatForm'),input=document.getElementById('chatInput');
+    if(!fab||!panel||!body||!form||!input) return;
+
+    const SYS="You are the friendly site assistant for HybridGfx, a freelance web developer and UI/UX architect. Answer questions about services, process, tech stack, pricing, and how to start a project. Be concise, warm, professional. Stack: React, Next.js, Node.js, REST APIs, Firebase, Figma, Tailwind, GSAP, TypeScript. Services: Landing pages, Web apps & dashboards, UI/UX design systems, site redesigns. Process: Discovery, Design, Build, Launch. Pricing: Starter from $350, Pro from $900, Enterprise custom. Contact: contact form, WhatsApp +2348140972012, Instagram @hybridgfx01. Keep replies 2-4 sentences.";
+    let hist=[];
+
+    function msg(role,text,typing){
+      const w=document.createElement('div');w.className='msg '+role;
+      const b=document.createElement('div');b.className='bubble';
+      if(typing)b.innerHTML='<span class="typing-dots"><span></span><span></span><span></span></span>';else b.textContent=text;
+      w.appendChild(b);body.appendChild(w);body.scrollTop=body.scrollHeight;return b;
+    }
+    const openChat=()=>{panel.classList.add('open');panel.setAttribute('aria-hidden','false');input.focus();localStorage.setItem('chat_open','1');};
+    const closeChat=()=>{panel.classList.remove('open');panel.setAttribute('aria-hidden','true');localStorage.removeItem('chat_open');};
+
+    fab.addEventListener('click',()=>panel.classList.contains('open')?closeChat():openChat());
+    close.addEventListener('click',closeChat);
+    document.querySelectorAll('.chip').forEach(c=>c.addEventListener('click',()=>{input.value=c.dataset.q||'';form.dispatchEvent(new Event('submit'));}));
+
+    async function ask(text){
+      hist.push({role:'user',content:text});if(hist.length>20)hist=hist.slice(-20);
+      try{
+        const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:SYS,messages:hist})});
+        const d=await r.json();const rep=(d.content&&d.content[0]&&d.content[0].text)||"I'm having a connection issue. Please use the contact form or WhatsApp!";
+        hist.push({role:'assistant',content:rep});return rep;
+      }catch{return "Couldn't connect right now. Please reach HybridGfx via the contact form or WhatsApp!";}
+    }
+
+    form.addEventListener('submit',async e=>{
+      e.preventDefault();const text=(input.value||'').trim();if(!text)return;
+      input.value='';input.disabled=true;
+      msg('user',text);const tb=msg('bot','',true);
+      const ans=await ask(text);tb.innerHTML='';tb.textContent=ans;body.scrollTop=body.scrollHeight;
+      input.disabled=false;input.focus();
+    });
+
+    if(!localStorage.getItem('chat_welcome')){msg('bot',"Hi! I'm HybridGfx's AI assistant ✨ Ask about services, pricing, process, or how to get started.");localStorage.setItem('chat_welcome','1');}
+    if(localStorage.getItem('chat_open')==='1')openChat();
+  })();
+  </script>
+</body>
+</html>
